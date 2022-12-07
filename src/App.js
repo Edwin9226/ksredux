@@ -1,25 +1,28 @@
-import logo from './logo.svg';
+
+import { useSelector } from 'react-redux';
+import { BrowserRouter as Router ,Route,Routes } from 'react-router-dom';
 import './App.css';
+import TaskFolder from './components/TaskFolder';
+import TaskList from './components/TaskList';
+
 
 function App() {
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className='bg-zinc-900 h-screen text-white'>
+    <div className='flex items-center justify-center h-full'>
+     
+<Router>
+<Routes>
+  <Route path='/' element={<TaskList/>}/>
+  <Route path='/create' element={<TaskFolder/>}/>
+<Route path='/edit-task/:id' element={<TaskFolder/>}></Route>
+</Routes>
+</Router>
+</div>
     </div>
   );
 }
 
 export default App;
+ 
