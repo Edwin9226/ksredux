@@ -6,9 +6,7 @@ import TaskList from './components/TaskList';
 
 
 function App() {
-
- const task= useSelector(state => state.task)
- console.log(task)
+  
   return (
     <div className="App">
 HELLO WORLD;
