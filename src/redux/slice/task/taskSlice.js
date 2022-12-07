@@ -29,10 +29,18 @@ export const taskSlice= createSlice({
         modifyUser: (state, action) => {
           const formattedData = { ...state, ...action.payload };
           return formattedData;
+        },
+        deleteTask:(state, action)=>{
+          const taskFound= state.find(task=> task.id=== action.payload)
+          if(taskFound){
+            state.splice(state.indexOf(taskFound),1)
+          }
+          //console.log(action)
+
         }
       
       }
 
 });
-export const { createTask, modifyUser}= taskSlice.actions
+export const { createTask, modifyUser, deleteTask}= taskSlice.actions
 export default taskSlice.reducer;
